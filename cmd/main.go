@@ -25,9 +25,6 @@ func main() {
 	// Настройка роутов
 	router := gin.Default()
 
-	// Генерация Swagger документации
-	//router.GET("/swagger/*any", swagger.WrapHandler)
-
 	// Роуты
 	router.GET("/songs", handlers.GetSongs)             // Получение песен с фильтрацией и пагинацией
 	router.GET("/songs/:id/text", handlers.GetSongText) // Получение текста песни с пагинацией по куплетам

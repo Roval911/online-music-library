@@ -1,50 +1,50 @@
 package db
 
 import (
-	"database/sql"
-	"fmt"
-	"log"
-	"os"
+	//"database/sql"
+	//"fmt"
+	//"log"
+	//"os"
 
-	_ "github.com/lib/pq"
+	//_ "github.com/lib/pq"
 	"online-music-library/internal/models"
 )
 
-var db *sql.DB
+//var db *sql.DB
 
 // Инициализация базы данных
-func InitDB() {
-	var err error
-	connStr := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable",
-		os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"), os.Getenv("DB_NAME"))
-	db, err = sql.Open("postgres", connStr)
-	if err != nil {
-		log.Fatal("Error connecting to the database: ", err)
-	}
-}
+//func InitDB() {
+//	var err error
+//	connStr := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable",
+//		os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"),
+//		os.Getenv("DB_PORT"), os.Getenv("DB_NAME"))
+//	db, err = sql.Open("postgres", connStr)
+//	if err != nil {
+//		log.Fatal("Error connecting to the database: ", err)
+//	}
+//}
 
 // Закрытие соединения с базой данных
-func CloseDB() {
-	db.Close()
-}
+//func CloseDB() {
+//	db.Close()
+//}
 
 // Запуск миграций
-func RunMigrations() {
-	// Пример SQL миграций (создание таблиц)
-	createTableQuery := `CREATE TABLE IF NOT EXISTS songs (
-		id SERIAL PRIMARY KEY,
-		group_name TEXT NOT NULL,
-		song_name TEXT NOT NULL,
-		release_date TEXT,
-		text TEXT,
-		link TEXT
-	);`
-	_, err := db.Exec(createTableQuery)
-	if err != nil {
-		log.Fatal("Error running migrations: ", err)
-	}
-}
+//func RunMigrations() {
+//	// Пример SQL миграций (создание таблиц)
+//	createTableQuery := `CREATE TABLE IF NOT EXISTS songs (
+//		id SERIAL PRIMARY KEY,
+//		group_name TEXT NOT NULL,
+//		song_name TEXT NOT NULL,
+//		release_date TEXT,
+//		text TEXT,
+//		link TEXT
+//	);`
+//	_, err := db.Exec(createTableQuery)
+//	if err != nil {
+//		log.Fatal("Error running migrations: ", err)
+//	}
+//}
 
 // Сохранение песни
 func SaveSong(song *models.Song, details models.Song) error {
