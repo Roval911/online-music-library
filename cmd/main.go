@@ -1,16 +1,11 @@
 package main
 
 import (
-	//"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"log"
 	"online-music-library/internal/db"
 	"online-music-library/internal/handlers"
-	//"os"
-
-	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
-	//"github.com/gin-gonic/contrib/swagger"
-	//_ "online-music-library/docs" // импортируем для генерации swagger
 )
 
 func init() {
